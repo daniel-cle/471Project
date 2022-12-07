@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@
 				<div class="col-md-2" style="margin-left: -10px;">
 					<?php
 					include("sidenav.php");
+					include("../include/connection.php")
 					?>
 				</div>
 
@@ -31,6 +33,7 @@
 								<h5 class="text-center">All Admins</h5>
 
 								<?php
+
 								$ad = $_SESSION['admin'];
 								$query = "SELECT * FROM admin WHERE username != '$ad'";
 								$res = mysqli_query($connect,$query);
@@ -38,7 +41,7 @@
 								 $output = "
 								 	<table class='table table-bordered'>
 								 	<tr>
-									<th>ID</th>
+									<th>Employee Number</th>
 									<th>Username</th>
 									<th style='width: 10%;>Action</th>
 									<tr>
@@ -52,15 +55,15 @@
 								}
 
 								while ($row = mysqli_fetch_array($res)) {
-									$id = $row['id'];
+									$emp_no = $row['emp_no'];
 									$username = $row['username'];
 
 									$output .="
 											<tr>
-										<td>$id</td>
+										<td>$emp_no</td>
 										<td>$username</td>
 										<td>
-											<a href='admin?id=$id'><button id='id' class='btn btn-danger remove'>Remove</button></a>
+											<a href='admin?emp_no=$emp_no'><button id='id' class='btn btn-danger remove'>Remove</button></a>
 										</td>
 									";
 								}
