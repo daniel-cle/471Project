@@ -36,7 +36,7 @@
 
                     <h5 class="text-center">Log in here for doctors</h5>
 
-                    <a href="#">
+                    <a href="doctorlogin.php">
                         <button class="btn btn-success"> LOG IN</button>
                     </a>
 

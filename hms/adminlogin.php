@@ -15,7 +15,7 @@ if (isset($_POST['login'])){
         $query = "SELECT * FROM admin WHERE emp_no='$emp_no' ";
         $result = mysqli_query($connect, $query);
     
-        if(mysqli_num_rows($result)){
+        if(mysqli_num_rows($result) == 1){
             echo "<script>alert('Login Successful')</script>";
 
             $_SESSION['admin'] = $emp_no;
@@ -48,6 +48,7 @@ if (isset($_POST['login'])){
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
+                <h5 class="text-center my-2">Admin Login</h5>
                     <form method="post">
 
                         <div class="alert alert-danger">
